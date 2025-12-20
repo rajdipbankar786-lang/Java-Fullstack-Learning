@@ -48,6 +48,7 @@ if (marks >= 75) {
 
 ➍ switch Statement
 ↪︎ Selects execution based on a fixed value.
+Supported types: byte, short, int, char, String, enum
 Example:-
 int day = 2;
 
