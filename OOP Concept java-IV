@@ -1,0 +1,96 @@
+                                                                                                     𝓞𝓞𝓟 𝓒𝓸𝓷𝓬𝓮𝓹𝓽𝓼 𝓲𝓷 𝓙𝓪𝓿𝓪
+Polymorphism in Java
+
+☞ Meaning of Polymorphism
+Polymorphism is derived from two Greek words:
+↪︎Poly → many
+↪︎Morphism → forms
+⏺︎ In Java, polymorphism means one interface (method name), many implementations (behaviors).
+In simple terms:
+↪︎ The same method call can perform different actions depending on the object or parameters involved.
+
+Types of Polymorphism in Java
+| Type                      | When it happens    | Mechanism          |
+| ------------------------- | ------------------ | ------------------ |
+| Compile-time Polymorphism | During compilation | Method Overloading |
+| Run-time Polymorphism     | During execution   | Method Overriding  |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1. Compile-time Polymorphism (Method Overloading)
+Definition
+↪︎ Method overloading occurs when multiple methods have the same name but different parameter lists in the same class.
+The compiler decides which method to call based on arguments.
+• Rules of Method Overloading
+✔ Same method name
+✔ Different parameter list (type, number, or order)
+✘ Cannot be achieved by return type alone
+✔ Can overload static and final methods
+✔ Happens within the same class
+
+Example:-
+class Solution{
+int add(int a, int b){
+return a+b; }
+
+double div(double a, double b){
+return a/b; }
+
+public static void main(String [] args){
+Solution S= new Solution();
+
+System.out.println("Addition "+S.add(10,5);
+System.out.println("Multiplication "+S.div(10,5);
+ }
+}
+
+★ How Compiler Decides (Compile-time)
+▶ Looks at method name
+▶ Matches number of parameters
+▶ Matches data types
+▶ Selects best match
+▶ This decision happens before program execution.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. Run-time Polymorphism (Method Overriding)
+Definition
+↪︎ Method overriding occurs when a child class provides its own implementation of a method already defined in the parent class.
+The decision of which method to call is made at runtime, based on the object.
+
+• Rules of Method Overriding
+✔ Same method name
+✔ Same parameter list
+✔ Must use inheritance
+✔ Access level cannot be reduced
+✘ final, static, and private methods cannot be overridden
+✔ Return type must be same or covariant
+
+Example:-
+class Parents{
+void car(){
+System.out.println("Car are start in every Morning");
+}
+
+class Child extends Parents{
+  @Override
+void car(){
+System.out.println("Bike are not start in Night");
+}
+
+public static void main(String [] args){
+Parents C= new Child();
+c.car();
+}
+}
+
+★ How JVM Decides (Run-time)
+▶ JVM checks actual object type, not reference type
+▶ Uses Dynamic Method Dispatch
+▶ Method call resolved during execution
+
+Differences: Overloading vs Overriding
+| Feature            | Overloading                 | Overriding         |
+| ------------------ | --------------------------- | ------------------ |
+| Polymorphism type  | Compile-time                | Run-time           |
+| Inheritance needed | No                          | Yes                |
+| Method signature   | Same name, different params | Same name & params |
+| Binding            | Static                      | Dynamic            |
+| Performance        | Faster                      | Slightly slower    |
+
