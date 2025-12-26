@@ -1,0 +1,90 @@
+                                                                                               𝓞𝓞𝓟 𝓒𝓸𝓷𝓬𝓮𝓹𝓽𝓼 𝓲𝓷 𝓙𝓪𝓿𝓪
+✤ Abstraction in Java
+↬ Abstraction is an object-oriented programming (OOP) concept that focuses on what an object does rather than how it does it. It hides implementation details and exposes only essential functionality to the user.
+In Java, abstraction is achieved using:
+➥Abstract Classes
+➥Interfaces
+
+1. Abstract Class
+An abstract class is a class that cannot be instantiated. It may contain:
+➣ Abstract methods (without body)
+➣ Concrete methods (with body)
+➣ Variables, constructors
+
+● Syntax
+abstract class ClassName {
+    abstract void methodName(); // abstract method
+
+    void normalMethod() {
+        System.out.println("Normal method");
+    }
+}
+
+Example:-
+abstract class Vehicle{
+abstract void Car(); // abstract method
+void fule(){
+System.out.println("Used to fule Start Car");
+ }
+}
+class Bike extends Vehicle(){
+ @Override
+void Car(){
+System.out.println("Car Colour is very nice");
+}
+
+public static void main(String [] args){
+Vehical v= new Car();
+v.Car();
+v.fule();
+ }
+}
+
+★ Key Points (Abstract Class)
+► Cannot create object directly
+► Can have both abstract and non-abstract methods
+► Supports constructors
+► Supports inheritance using extends
+
+2. Interface
+➮ An interface is a blueprint of a class. It contains:
+➮ Abstract methods (by default)
+➮ public static final variables
+➮ Default and static methods (Java 8+)
+
+● Syntax
+interface InterfaceName {
+    void methodName(); // public and abstract by default
+}
+
+Example:-
+interface Animal {
+    void sound();
+}
+
+class Dog implements Animal {
+    @Override
+    public void sound() {
+        System.out.println("Dog barks");
+    }
+
+    public static void main(String[] args) {
+        Animal a = new Dog();
+        a.sound();
+    }
+}
+
+★ Key Points (Interface)
+➮ Cannot create object
+➮ Supports multiple inheritance
+➮ All methods are public abstract by default
+➮ Variables are public static final
+
+⊛ Abstract Class vs Interface
+| Feature      | Abstract Class      | Interface                         |
+| ------------ | ------------------- | --------------------------------- |
+| Methods      | Abstract + Concrete | Abstract (default/static allowed) |
+| Variables    | Any type            | `public static final`             |
+| Inheritance  | Single              | Multiple                          |
+| Constructors | Yes                 | No                                |
+| Keyword      | `extends`           | `implements`                      |
