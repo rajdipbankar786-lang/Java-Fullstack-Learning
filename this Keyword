@@ -1,0 +1,81 @@
+                                                                                                        Keyword
+1.this Keyword (Current Object Reference)
+Definition
+↬ this is a reference variable that refers to the current object of the class.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------↬ Whenever a method or constructor is called on an object, Java internally passes that object’s reference as this.
+
+Example:-
+class Solution{
+int roll;
+Solution(int roll){
+this.roll=roll;
+}
+
+void display(){
+System.out.println(roll);
+ }
+public static void main(String [] args){
+Solution s=new Solution(101);
+s.display();
+ }
+}
+
+◍ Why needed?
+Without this, Java gives priority to local variables.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+➲ To Call Current Class Method
+class Demo {
+    void show() {
+        System.out.println("Show method");
+    }
+
+    void display() {
+        this.show();   // optional but valid
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+➲ To Pass Current Object as Argument
+class A {
+    void show(A obj) {
+        System.out.println("Method called");
+    }
+
+    void call() {
+        show(this);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+➲ To Pass Current Object as Argument
+class A {
+    void show(A obj) {
+        System.out.println("Method called");
+    }
+
+    void call() {
+        show(this);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+➲ To Call Current Class Constructor (Constructor Chaining)
+class Test {
+    Test() {
+        this(10);   // calls parameterized constructor
+        System.out.println("Default constructor");
+    }
+
+    Test(int a) {
+        System.out.println("Parameterized constructor: " + a);
+    }
+
+    public static void main(String[] args) {
+        new Test();
+    }
+}
+ Rule: this() must be the first statement in constructor.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+★ Key Rules for this
+➙ Refers to current object
+➙ Cannot be used in static context
+➙ Improves readability
+➙ Used only inside instance methods/constructors
+
